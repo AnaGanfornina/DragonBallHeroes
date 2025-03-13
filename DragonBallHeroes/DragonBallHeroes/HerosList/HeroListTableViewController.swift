@@ -94,13 +94,31 @@ final class HeroListTableViewController: UITableViewController {
 
 }
 
+// MARK: - UITableViewDelegate
+
 extension HeroListTableViewController {
+    
     /// Función sobreescrita para dar un tamaño a la celda
     override func tableView(
         _ tableView: UITableView,
         heightForRowAt indexPath: IndexPath
     ) -> CGFloat {
         100
+    }
+    
+    ///Función sobreescrita para dar información sobre la celda seleccionaa
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        guard let heroSelected = dataSource?.itemIdentifier(for: indexPath) else { return }
+        
+        // Presentamos nuestro DetailHeroVC
+        DispatchQueue.main.async { 
+            let detailHeroViewController = DetailHeroViewController(hero: heroSelected)
+            self.navigationController?.show(detailHeroViewController, sender: self)
+        }
+        
     }
 }
 

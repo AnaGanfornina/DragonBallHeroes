@@ -47,7 +47,7 @@ final class LoginViewController: UIViewController {
                     //Navegamos hacia el HeroList
                     
                     
-                    DispatchQueue.main.async {
+                    DispatchQueue.main.async { // TODO: Aquí va un weak self ??
                         
                         let heroLisTableViewController = HeroListTableViewController()
                         self?.navigationController?.setViewControllers([heroLisTableViewController], animated: true)
