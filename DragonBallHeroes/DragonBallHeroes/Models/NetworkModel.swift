@@ -106,4 +106,39 @@ final class NetworkModel {
         
         client.request(request, using: [Hero].self, completion: completion)
     }
+    
+    // MARK: - Método para obtener un json de transformaciones
+    
+    ///Método para obtener un json de transformaciones
+    func getTransformations(
+        for hero: Hero,
+        completion: @escaping (Result<[Transformation], APIClientError>) -> Void
+    ) {
+        var components = baseComponents
+        components.path = "/api/heros/tranformations"
+        
+        guard let url = components.url else {
+            completion(.failure(.malformedURL))
+            return
+        }
+        
+        guard let token else {
+            completion(.failure(.unknown))
+            return
+        }
+        
+        guard let serializedBody = try? JSONSerialization.data(withJSONObject: ["id": hero.id]) else {
+            completion(.failure(.decodingFailed))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json; chaset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.httpBody = serializedBody
+        
+        client.request(request, using: [Transformation].self, completion: completion)
+    }
+    
 }
