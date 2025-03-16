@@ -69,7 +69,6 @@ struct APIClient: APIClientProtocol {
                 return
             }
             
-            
             let response = response as? HTTPURLResponse
             
             guard let response, response.statusCode == 200 else {
@@ -130,12 +129,8 @@ struct APIClient: APIClientProtocol {
             
             completion(.success(decodeModel))
             
-            
         }
         
         task.resume()
     }
 }
-
-
-

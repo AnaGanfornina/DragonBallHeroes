@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 extension UIImageView {
     func setImage(url: URL) {
         downloadWithURLSession(url: url) { [weak self] result in

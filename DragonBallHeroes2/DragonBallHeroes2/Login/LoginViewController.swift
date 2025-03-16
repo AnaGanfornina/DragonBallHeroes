@@ -19,8 +19,6 @@ final class LoginViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
     
     // MARK: - Button Acction
@@ -46,7 +44,6 @@ final class LoginViewController: UIViewController {
                     
                     //Navegamos hacia el HeroList
                     
-                    
                     DispatchQueue.main.async { // TODO: Aquí va un weak self ??
                         
                         let heroLisTableViewController = HeroListTableViewController()
@@ -58,7 +55,4 @@ final class LoginViewController: UIViewController {
                 }
             }
     }
-    
-
-
 }

@@ -24,8 +24,6 @@ final class DetailHeroViewController: UIViewController {
         
         self.hero = hero
         super.init(nibName: nil, bundle: nil)
-
-        
     }
     
     required init?(coder: NSCoder) {
@@ -43,8 +41,6 @@ final class DetailHeroViewController: UIViewController {
         heroImageView.setImage(url: url)
         nameHeroLabel.text = hero.name
         descriptionHeroLabel.text = hero.description
-
-        
     }
     
     // MARK: - Actions
@@ -55,11 +51,6 @@ final class DetailHeroViewController: UIViewController {
             let transformationTableViewController = TransformationListTableViewController(hero: self.hero)
             self.navigationController?.show(transformationTableViewController, sender: self)
         }
-        
     }
-    
-
-
-
 }
 

@@ -79,5 +79,4 @@ final class NetworkModelTest: XCTestCase {
          XCTAssertEqual(successResult, recivedResult)
          
      }
-
 }

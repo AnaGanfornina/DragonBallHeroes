@@ -14,8 +14,7 @@ final class TransformationTableViewCell: UITableViewCell {
     static let identifier = String(describing: TransformationTableViewCell.self)
     
     // MARK: - Outlets
-    
-    
+        
     @IBOutlet var transformationImage: UIImageView!
     @IBOutlet var transformationNameLabel: UILabel!
     @IBOutlet var transformationDescriptionLabel: UILabel!

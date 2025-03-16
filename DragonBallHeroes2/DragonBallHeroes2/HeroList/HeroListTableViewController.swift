@@ -49,8 +49,6 @@ final class HeroListTableViewController: UITableViewController {
             
             cell.configure(whith: hero)
             return cell
-            
-           
             }
         
         let networkModel = NetworkModel.shared
@@ -67,14 +65,10 @@ final class HeroListTableViewController: UITableViewController {
                 
             case let.failure(error):
                 print(error)
-                
-                
             }
             
         }
-
     }
-
 }
 
 // MARK: - UITableViewDelegate
@@ -100,9 +94,6 @@ extension HeroListTableViewController {
         DispatchQueue.main.async {
             let detailHeroViewController = DetailHeroViewController(hero: heroSelected)
             self.navigationController?.show(detailHeroViewController, sender: self)
-        }
-        
+        }    
     }
 }
-
-
