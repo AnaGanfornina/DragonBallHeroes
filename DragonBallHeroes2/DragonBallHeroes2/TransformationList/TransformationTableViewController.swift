@@ -93,4 +93,18 @@ extension TransformationListTableViewController {
     ) -> CGFloat {
         100
     }
+    
+    ///Función sobreescrita para dar información sobre la celda seleccionaa
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        guard let transformationSelected = dataSource?.itemIdentifier(for: indexPath) else { return }
+        
+        // Presentamos nuestro DetailHeroVC
+        DispatchQueue.main.async {
+            let detailTransformationViewController = DetailTransformationViewController(transformation: transformationSelected)
+            self.navigationController?.show(detailTransformationViewController, sender: self)
+        }
+    }
 }
